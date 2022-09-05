@@ -75,7 +75,7 @@ for emailid in items:
         print "<"+str(mail['date'])+"> "+"["+str(mail['from'])+"] :"+str(mail['subject'])
         # check subject
         subject = mail['subject']
-        outputdir = args.--dump_dir
+        outputdir = args.dump_dir
         # we use walk to create a generator so we can iterate on the parts and forget about the recursive headach
         for part in mail.walk():
                 # multipart are just containers, so we skip them
