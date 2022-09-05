@@ -36,6 +36,10 @@ MARK_AS_READ_NOMATCH = False
 # if no match is found, delete email?
 DELETE_EMAIL_NOMATCH = False
 
+# you could filter using the IMAP rules here (check http://www.example-code.com/csharp/imap-search-critera.asp)
+#searchstring = 'ALL'
+searchstring = '(SEEN SINCE 01-Mar-2017)'
+
 # --- --- --- --- ---
 #  CONFIGURATION END
 # --- --- --- --- ---
@@ -49,9 +53,6 @@ m.login(args.USER, args.PWD)
 # use m.list() to get all the mailboxes
 m.select("INBOX") # here you a can choose a mail box like INBOX instead
 
-# you could filter using the IMAP rules here (check http://www.example-code.com/csharp/imap-search-critera.asp)
-#searchstring = 'ALL'
-searchstring = '(SEEN SINCE 01-Mar-2017)'
 if FILTER_UNREAD_EMAILS: searchstring = 'UNSEEN'
 resp, items = m.search(None, searchstring)
 items = items[0].split() # getting the mails id
